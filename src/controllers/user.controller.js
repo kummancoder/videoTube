@@ -34,17 +34,17 @@ const registerUser = asyncHandler( async (req, res) => {
     // return res
 
 
-    const {fullName, email, username, password } = req.body
+    const {fullName, email, userName, password } = req.body
     //console.log("email: ", email);
 
     if (
-        [fullName, email, username, password].some((field) => field?.trim() === "")
+        [fullName, email, userName, password].some((field) => field?.trim() === "")
     ) {
         throw new ApiError(400, "All fields are required")
     }
 
     const existedUser = await User.findOne({
-        $or: [{ username }, { email }]
+        $or: [{ userName }, { email }]
     })
 
     if (existedUser) {
@@ -79,7 +79,7 @@ const registerUser = asyncHandler( async (req, res) => {
         coverImage: coverImage?.url || "",
         email, 
         password,
-        username: username.toLowerCase()
+        userName: userName.toLowerCase()
     })
 
     const createdUser = await User.findById(user._id).select(
@@ -104,21 +104,15 @@ const loginUser = asyncHandler(async (req, res) =>{
     //access and referesh token
     //send cookie
 
-    const {email, username, password} = req.body
+    const {email, userName, password} = req.body
     console.log(email);
 
-    if (!username && !email) {
+    if (!userName && !email) {
         throw new ApiError(400, "username or email is required")
     }
-    
-    // Here is an alternative of above code based on logic discussed in video:
-    // if (!(username || email)) {
-    //     throw new ApiError(400, "username or email is required")
-        
-    // }
 
     const user = await User.findOne({
-        $or: [{username}, {email}]
+        $or: [{userName}, {email}]
     })
 
     if (!user) {
