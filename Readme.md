@@ -37,45 +37,6 @@ This backend project includes functionalities such as:
 
 ---
 
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/kummancoder/videoTube.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd videoTube
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Set up environment variables in a `.env` file:
-
-   ```env
-   PORT=5000
-   MONGO_URI=<your-mongodb-connection-string>
-   JWT_SECRET=<your-jwt-secret>
-   REFRESH_TOKEN_SECRET=<your-refresh-token-secret>
-   ```
-
-5. Start the server:
-
-   ```bash
-   npm run dev
-   ```
-
-6. The server will be running at `http://localhost:5000`.
-
----
-
 ## Features
 
 1. **User Authentication**:
@@ -102,16 +63,6 @@ This backend project includes functionalities such as:
 5. **Scalable Design**:
 
    - Modular and maintainable codebase following industry standards.
-
----
-
-## Future Improvements
-
-- Add real-time notifications for likes, comments, and subscriptions.
-- Integrate video streaming services.
-- Implement advanced search functionality.
-- Add analytics for video views and user engagement.
-- Include role-based access control (e.g., admin, creator, viewer).
 
 ---
 
